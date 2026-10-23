@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  html { -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+  body {
+    @apply bg-ink-900 font-sans text-milk antialiased;
+    /* soft polka dots + pastel glow, like the poster's pink swirl background */
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(217,58,120,.14) 1.5px, transparent 0),
+      radial-gradient(50rem 28rem at 0% -10%, rgba(255,255,255,.7), transparent 60%),
+      radial-gradient(45rem 26rem at 100% 0%, rgba(185,215,245,.55), transparent 60%);
+    background-size: 26px 26px, auto, auto;
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+  ::selection { background: #ffe566; color: #2b1a2e; }
+  :focus-visible { @apply outline-none ring-2 ring-ink-950 ring-offset-2 ring-offset-star; }
+  img { @apply select-none; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+
+  /* sticker-style buttons: bold outline + hard shadow that "presses" on click */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink-950 px-6 py-3 font-display text-[15px] font-semibold
+           transition duration-150 disabled:pointer-events-none disabled:opacity-50;
+    box-shadow: 3px 3px 0 0 #2b1a2e;
+  }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 0 #2b1a2e; }
+  .btn:active { transform: translate(3px, 3px); box-shadow: 0 0 0 0 #2b1a2e; }
+  .btn-primary { @apply btn bg-star text-ink-950 hover:bg-star-soft; }
+  .btn-pink    { @apply btn bg-bun text-ink-950 hover:bg-bun-soft; }
+  .btn-ghost   { @apply btn bg-white text-ink-950 hover:bg-cloud-soft; }
+  .btn-sm { @apply px-4 py-2 text-sm; }
+
+  .input {
+    @apply w-full rounded-2xl border-2 border-ink-950/25 bg-white px-4 py-3 text-milk placeholder:text-milk/40
+           transition focus:border-ink-950 focus:outline-none focus:ring-4 focus:ring-star/70;
+  }
+  .input-error { @apply border-bun-deep focus:border-bun-deep focus:ring-bun-deep/25; }
+  .label { @apply mb-1.5 block text-sm font-bold text-milk/85; }
+  .field-error { @apply mt-1.5 text-sm font-semibold text-bun-deep; }
+
+  .card { @apply rounded-3xl border-2 border-ink-950 bg-white shadow-card; }
+  .card-hover { @apply transition duration-200 hover:-translate-y-1 hover:shadow-sticker; }
+
+  .badge { @apply inline-flex items-center gap-1 rounded-full border-2 border-ink-950 px-2.5 py-0.5 font-display text-xs font-semibold; }
+  .badge-star { @apply badge bg-star text-ink-950; }
+  .badge-pink { @apply badge bg-bun text-ink-950; }
+  .badge-cloud { @apply badge bg-cloud text-ink-950; }
+  .badge-muted { @apply badge bg-white text-ink-950; }
+
+  .eyebrow { @apply font-display text-xs font-semibold uppercase tracking-[.22em] text-bun-ribbon; }
+  .section-title { @apply font-display text-3xl font-semibold sm:text-4xl; }
+
+  .skeleton { @apply relative overflow-hidden rounded-2xl bg-ink-950/[.07]; }
+  .skeleton::after { content: ''; @apply absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/60 to-transparent; }
+
+  .glass-bar { @apply border-b-2 border-ink-950 bg-ink-900/85 backdrop-blur-xl; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
