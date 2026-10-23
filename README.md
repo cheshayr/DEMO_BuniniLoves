@@ -2,7 +2,7 @@
 
 A public **showcase** of the Bunini Loves online store (pastel stationery boutique, Philippines).
 
-> **This is a demo.** Every product, review, event and news post is made-up sample data that lives in your browser tab.
+> **This is a demo.** Every product, review, event, and news post is made-up sample data that lives in your browser tab.
 > Nothing is saved, no payments are taken, and there is no real backend or database in this repository. The owner admin is a working demo on the same sample data.
 
 ## What you can try
@@ -50,4 +50,4 @@ The real store talks to a private backend. In this demo, `src/lib/supabase.ts` i
 
 ## License / usage
 
-The code and artwork are shown for portfolio purposes. Please don't republish them as your own.
+© 2026 All rights reserved. This code and artwork were created as a personal project for Bunini Loves. Please don’t copy or republish them as your own.
